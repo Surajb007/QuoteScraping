@@ -1,6 +1,7 @@
 # http://quotes.toscrape.com/
 import requests
 from bs4 import BeautifulSoup
+from time import sleep
 
 all_quotes = []
 base_url = "http://quotes.toscrape.com"
@@ -20,3 +21,4 @@ while url:
         })
     next_btn = soup.find(class_ = "next")
     url = next_btn.find("a")["href"] if next_btn else None
+    sleep(2)
